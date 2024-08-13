@@ -1,0 +1,34 @@
+version: '3.8'
+
+networks:
+  base-network:
+    driver: overlay
+
+services:
+  gateway-service:
+    image: rhsalska55/gateway-service
+    ports:
+      - "8080:8080"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - base-network
+    build:
+      context: ../gateway
+
+  micro-service:
+    image: rhsalska55/micro-service
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    networks:
+      - base-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=alpha
+    build:
+      context: ../micro-service
+      args:
+        MAVEN_PROFILE: alpha

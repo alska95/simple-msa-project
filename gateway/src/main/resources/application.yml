@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: micro-service
+          predicates:
+            - Path=/micro-service/**
+          uri: http://micro-service:8080

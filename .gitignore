@@ -1,0 +1,18 @@
+.idea
+!.idea/modules.xml
+!.idea/compiler.xml
+!.idea/encodings.xml
+!.idea/misc.xml
+/supportsub
+erl_crash.dump
+# Project exclude paths
+/service-discovery/target/
+/support/dockerscript/jenkins
+!/support/dockerscript/jenkins/jobs/*/config.xml
+/chat-service/logs/
+/logs/
+/chat-service/text.docx
+/chat-service/audiofile.mp3
+/chat-service/test/
+/chat-front/node_modules/
+/web-search-service/test/
